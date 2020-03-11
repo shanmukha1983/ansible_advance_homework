@@ -1,2 +1,4 @@
 ---
 # vars file for lb-tier
+_yum_packages:
+- haproxy
