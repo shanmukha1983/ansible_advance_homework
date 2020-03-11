@@ -1,4 +1,27 @@
 - hosts: workstation
   become: yes
-  roles:
-    - osp-servers
+
+  tasks:
+    # Load balancer host deployment
+    - name: Deploy frontend instance
+      include_role:
+        name: osp-servers
+        vars_from: frontend.yml
+
+    # Web server 1 deployment
+    - name: Deploy app1 instance
+      include_role:
+        name: osp-servers
+        vars_from: app1.yml
+
+    # Web server 2 deployment
+    - name: Deploy app2 instance
+      include_role:
+        name: osp-servers
+        vars_from: app2.yml
+
+    # Database server deplyment
+    - name: Deploy db instance
+      include_role:
+        name: osp-servers
+        vars_from: db.yml

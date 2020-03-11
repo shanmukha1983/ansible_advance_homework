@@ -2,4 +2,13 @@
   gather_facts: false
   tasks:
   - name: Use Uri module for wrting smoke test.
+    action: uri url=http://frontend1.{{ ANSIBLE_ADVANCE_GUID }}.example.opentlc.com return_content=yes
+    register: webpage
+
   - name: Fail if 'Ansible has done its job' is not in the page content
+    fail:
+        msg: 'Webserver test failed, review webservers state and configuration.'
+    when: "'Ansible has done its job' not in webpage.content"
+  - name: Test ok
+    debug:
+      msg: "well done, AWS deployment completed successfully!"

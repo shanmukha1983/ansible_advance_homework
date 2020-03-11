@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  
+  tasks:
+
+   - name: power on instance
+     debug:
+       msg: "hola"
+
+   - name: Power on osp instance
+     os_server_action:
+       cloud: ospcloud
+       action: start
+       client_key: ansible_ssh
+       server: frontend
+       timeout: 200
