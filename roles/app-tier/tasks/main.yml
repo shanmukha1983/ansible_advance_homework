@@ -1,6 +1,5 @@
 ---
 # tasks file for app-tier
----
 - name: install HTTPD and TOMCAT software
   yum:
     name:
