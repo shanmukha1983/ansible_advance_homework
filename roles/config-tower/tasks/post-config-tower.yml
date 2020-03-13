@@ -12,8 +12,13 @@
     tower_host: tower1.{{tower_GUID}}.example.opentlc.com
     tower_username: admin
     tower_password: r3dh4t1!
+<<<<<<< HEAD
     ssh_key_data: "/root/.ssh/openstack.pem"
     username: cloud-user
+=======
+    ssh_key_data: "~/.ssh/a504key.pem"
+    username: ec2-user
+>>>>>>> 72acaaf82d6f90a19d83a4676cdc16d2affd73ae
 
 - name: Create Inventory
   command: |
